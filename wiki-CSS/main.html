@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="layout.css">
+        <title>CSS - 위키백과, 우리 모두의 백과사전</title>
+        <style>
+            body{
+                margin-top:0px;
+                margin-bottom:0px;
+                margin-left:30px;
+                margin-right:30px;
+            }
+            #grid{
+                background-color: pink;
+                display:grid;
+                grid-template-columns:150px 1fr;
+            }
+            #contentgrid{
+                display:grid;
+                grid-template-rows: 100px 1fr;
+            }
+            img {
+                width:50px;
+            }
+            a{
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="my-page">
+            <div class="my-page-inner">
+                <header class="my-header">
+                    << / <img src="https://ko.wikipedia.org/static/images/mobile/copyright/wikipedia.png"> / wiki / search / 계정 만들기 / ...
+                </header>
+                <div class="my-main-page">
+                    <div id="grid">
+                        <div class="my-leftside-option" >
+                        <a href="https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EB%8C%80%EB%AC%B8">대문</a><br>
+                        <a href="https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EC%B5%9C%EA%B7%BC%EB%B0%94%EB%80%9C?hidebots=1&hidecategorization=1&hideWikibase=1&limit=50&days=7&urlversion=2">최근 바뀜</a><br>
+                        요즘 화제<br>
+                        임의의 문서로<br>
+                        기부<br>
+                        <br>
+                        사용자 모임<br>
+                        </div>
+                        <div id="contentgrid">
+                            <div class="my-upside-option">
+                                up !
+                            </div>
+                            <div class="my-content">
+                                content !
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

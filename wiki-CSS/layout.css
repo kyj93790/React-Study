@@ -1,0 +1,34 @@
+.my-page {
+    background-color:pink;
+}
+
+.my-page-inner{
+    background-color:yellow;
+}
+
+.my-header{
+    margin-top:15px;
+    margin-bottom:5px;
+    background-color:aqua;
+}
+
+.my-main-page{
+
+}
+
+.my-upside-option{
+    background-color:lightgreen;
+    text-align:center;
+}
+
+.my-leftside-option{
+    font-size:12px;
+    margin-top:8px;
+    margin-left:13px;
+    background-image: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 10%, #f8f9fa 90%, #ffffff 100%);
+}
+
+.my-content{
+    background-color:lightsalmon;
+    text-align: center;
+}
