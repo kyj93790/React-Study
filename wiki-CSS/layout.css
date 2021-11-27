@@ -1,34 +1,68 @@
 .my-page {
-    background-color:pink;
+    /*background-color:pink;*/
 }
 
 .my-page-inner{
-    background-color:yellow;
+    /*background-color:yellow;*/
 }
 
 .my-header{
     margin-top:15px;
-    margin-bottom:5px;
-    background-color:aqua;
+    margin-bottom:15px;
+    /*background-color:aqua;*/
+    display:grid;
+    grid-template-columns: 50px 70px 130px 1fr 200px;
+}
+
+.search{
+    margin-left:5px;
+    margin-top:10px;
+    height: 35px;
+    width: 500px;
+    display:inline;
 }
 
 .my-main-page{
-
+    display:grid;
+    grid-template-columns:150px 1fr;
 }
 
 .my-upside-option{
-    background-color:lightgreen;
+    /*background-color:lightgreen;*/
     text-align:center;
+    font-size:13px;
+    padding-top:10px;
+    display:grid;
+    grid-template-columns: 40px 40px 1fr 40px 40px 80px;
 }
 
 .my-leftside-option{
     font-size:12px;
     margin-top:8px;
-    margin-left:13px;
+    margin-left:5px;
     background-image: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 10%, #f8f9fa 90%, #ffffff 100%);
 }
 
+.my-left-block{
+    border-bottom:1px solid lightgray;
+    color:gray;
+}
+
 .my-content{
-    background-color:lightsalmon;
-    text-align: center;
+    /*background-color:lightsalmon;*/
+}
+
+.my-explanation{
+    font-size:13px;
+}
+
+.pop-up{
+    line-height: 17px;
+    margin-top:20px;
+    padding-top:10px;
+    padding-bottom: 10px;
+    text-align:center;
+    font-size:12px;
+    border:1px solid lightslategray;
+    background-image: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 10%, #f8f9fa 90%, #ffffff 100%);
 }

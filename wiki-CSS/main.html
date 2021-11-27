@@ -10,20 +10,28 @@
                 margin-left:30px;
                 margin-right:30px;
             }
-            #grid{
-                background-color: pink;
-                display:grid;
-                grid-template-columns:150px 1fr;
-            }
             #contentgrid{
                 display:grid;
-                grid-template-rows: 100px 1fr;
+                grid-template-rows: 25px 1fr;
+                margin:50px;
+                margin-top:10px;
+                margin-right:200px;
             }
             img {
                 width:50px;
             }
-            a{
+            a {
                 text-decoration: none;
+            }
+            p {
+                line-height: 17px;
+            }
+            input {
+                height:100%;
+                width:100%;
+            }
+            h1 {
+                border-bottom: 1px solid lightslategray;
             }
         </style>
     </head>
@@ -31,27 +39,86 @@
         <div class="my-page">
             <div class="my-page-inner">
                 <header class="my-header">
-                    << / <img src="https://ko.wikipedia.org/static/images/mobile/copyright/wikipedia.png"> / wiki / search / 계정 만들기 / ...
+                    <img src="https://ko.wikipedia.org/wiki/CSS#:~:text=%EB%B3%B8%EB%AC%B8%EC%9C%BC%EB%A1%9C%20%EC%9D%B4%EB%8F%99-,%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94,-%ED%86%A0%EA%B8%80">
+                    <img src="https://ko.wikipedia.org/static/images/mobile/copyright/wikipedia.png" style="margin-left:5px;">
+                    <span>
+                        <div style="font-size:25px; font-weight:bold;">위키백과</div>
+                        <div style="font-size:12px; font-family:'Malgun Gothic';">우리 모두의 백과사전</div>
+                    </span>
+                    <span class="search">
+                        <input type="text" placeholder="위키백과 검색">
+                    </span>
+                    계정 만들기 / ...
                 </header>
                 <div class="my-main-page">
-                    <div id="grid">
-                        <div class="my-leftside-option" >
-                        <a href="https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EB%8C%80%EB%AC%B8">대문</a><br>
-                        <a href="https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EC%B5%9C%EA%B7%BC%EB%B0%94%EB%80%9C?hidebots=1&hidecategorization=1&hideWikibase=1&limit=50&days=7&urlversion=2">최근 바뀜</a><br>
-                        요즘 화제<br>
-                        임의의 문서로<br>
-                        기부<br>
-                        <br>
-                        사용자 모임<br>
-                        </div>
+                    <div class="my-leftside-option" >
+                        <p>
+                            <a href="https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EB%8C%80%EB%AC%B8">대문</a><br>
+                            <a href="https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EC%B5%9C%EA%B7%BC%EB%B0%94%EB%80%9C?hidebots=1&hidecategorization=1&hideWikibase=1&limit=50&days=7&urlversion=2">최근 바뀜</a><br>
+                            <a href="https://ko.wikipedia.org/wiki/%ED%8F%AC%ED%84%B8:%EC%9A%94%EC%A6%98_%ED%99%94%EC%A0%9C">요즘 화제</a><br>
+                            <a href="https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EC%9E%84%EC%9D%98%EB%AC%B8%EC%84%9C">임의의 문서로</a><br>
+                            <a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&utm_medium=sidebar&utm_campaign=C13_ko.wikipedia.org&uselang=ko">기부</a><br>
+                        </p>
+                        <div class="my-left-block">사용자 모임</div>
+                        <p>
+                            <a href="https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EC%82%AC%EB%9E%91%EB%B0%A9">사랑방</a><br>
+                            <a href="https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EC%82%AC%EC%9A%A9%EC%9E%90_%EB%AA%A8%EC%9E%84">사용자 모임</a><br>
+                            <a href="https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EC%9A%94%EC%B2%AD">관리 요청</a><br>
+                        </p>
+                        <div class="my-left-block">편집 안내</div>
+                        <p>
+                            <a href="https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EB%8F%84%EC%9B%80%EB%A7%90">도움말</a><br>
+                            <a href="https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EC%A0%95%EC%B1%85%EA%B3%BC_%EC%A7%80%EC%B9%A8">정책과 지침</a><br>
+                            <a href="https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EC%A7%88%EB%AC%B8%EB%B0%A9">질문방</a><br>
+                        </p>
+                        <div class="my-left-block">도구</div>
+                        <p>
+                            <a href="https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/%ED%8F%AC%ED%84%B8:%EC%9A%94%EC%A6%98_%ED%99%94%EC%A0%9C">여기를 가리키는 문서</a><br>
+                            <a href="https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EB%A7%81%ED%81%AC%EC%B5%9C%EA%B7%BC%EB%B0%94%EB%80%9C/%ED%8F%AC%ED%84%B8:%EC%9A%94%EC%A6%98_%ED%99%94%EC%A0%9C">가리키는 글의 최근 바뀜</a><br>
+                            <a href="https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%ED%8C%8C%EC%9D%BC_%EC%98%AC%EB%A6%AC%EA%B8%B0">파일 올리기</a><br>
+                            <a href="https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%ED%8A%B9%EC%88%98%EB%AC%B8%EC%84%9C">특수 문서 목록</a><br>
+                            <a href="https://ko.wikipedia.org/w/index.php?title=%ED%8F%AC%ED%84%B8:%EC%9A%94%EC%A6%98_%ED%99%94%EC%A0%9C&oldid=30677217">고유 링크</a><br>
+                            <a href="https://ko.wikipedia.org/w/index.php?title=%ED%8F%AC%ED%84%B8:%EC%9A%94%EC%A6%98_%ED%99%94%EC%A0%9C&action=info">문서 정보</a><br>
+                            <a href="https://www.wikidata.org/wiki/Special:EntityPage/Q4597488">위키데이터 항목</a><br>
+                            <a href="https://www.wikidata.org/wiki/Special:EntityPage/Q4597488#sitelinks-wikipedia">언어 간 링크 편집</a>
+                        </p>
+                        <div class="my-left-block">인쇄/내보내기</div>
+                        <p>
+                            <a href="https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EC%B1%85&bookcmd=book_creator&referer=%ED%8F%AC%ED%84%B8%3A%EC%9A%94%EC%A6%98+%ED%99%94%EC%A0%9C">책 만들기</a><br>
+                            <a href="https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:DownloadAsPdf&page=%ED%8F%AC%ED%84%B8%3A%EC%9A%94%EC%A6%98_%ED%99%94%EC%A0%9C&action=show-download-screen">PDF로 다운로드</a><br>
+                            <a href="https://ko.wikipedia.org/w/index.php?title=%ED%8F%AC%ED%84%B8:%EC%9A%94%EC%A6%98_%ED%99%94%EC%A0%9C&printable=yes">인쇄용 판</a><br>
+                        </p>
+                    </div>
                         <div id="contentgrid">
                             <div class="my-upside-option">
-                                up !
+                                <div>
+                                    문서
+                                </div>
+                                <div>
+                                    토론
+                                </div>
+                                <div></div>
+                                <div>
+                                    읽기
+                                </div>
+                                <div>
+                                    편집
+                                </div>
+                                <div>
+                                    역사 보기
+                                </div>
                             </div>
                             <div class="my-content">
-                                content !
+                                <div class="pop-up">
+                                    <a href="https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EB%B9%84%EC%9E%90%EC%9C%A0_%EC%A0%80%EC%9E%91%EB%AC%BC_%EB%B3%B4%EA%B0%95_%EC%97%90%EB%94%94%ED%84%B0%ED%86%A4">비자유 저작물 보강 에디터톤</a>이 11월 1일부터 12월 12일까지 진행됩니다.<br>
+                                    <a href="https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC_%EC%95%84%EC%8B%9C%EC%95%84%EC%9D%98_%EB%8B%AC/2021%EB%85%84">2021년 위키백과 아시아의 달</a>이 11월 15일부터 12월 15일까지 진행됩니다.<br>
+                                </div>
+                                <h1>CSS</h1>
+                                <div class="my-explanation">
+                                    위키백과, 우리 모두의 백과사전.
+                                </div>
                             </div>
-                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
