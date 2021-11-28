@@ -54,7 +54,8 @@
 }
 
 .content-header{
-    
+    font-weight: bold;
+    margin-right:310px;
 }
 
 .content-first-header{
@@ -90,4 +91,5 @@
     background-image: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 10%, #f8f9fa 90%, #ffffff 100%);
     border:1px solid lightslategray;
     width:120px;
+    margin-bottom:30px;
 }
