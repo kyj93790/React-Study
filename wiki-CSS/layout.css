@@ -49,7 +49,18 @@
 }
 
 .my-content{
+    font-size:14px;
     /*background-color:lightsalmon;*/
+}
+
+.content-header{
+    
+}
+
+.content-first-header{
+    display:grid;
+    grid-template-columns: 50px 1fr 100px;
+
 }
 
 .my-explanation{
@@ -65,4 +76,10 @@
     font-size:12px;
     border:1px solid lightslategray;
     background-image: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 10%, #f8f9fa 90%, #ffffff 100%);
+}
+
+.mini-pop-up{
+    font-size:12px;
+    display:grid;
+    grid-template-columns: 30px 1fr;
 }
