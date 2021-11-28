@@ -35,13 +35,25 @@
                 border-bottom: 1px solid lightslategray;
             }
             table {
+                background: #f8f9fa;
                 border-collapse:collapse;
                 font-size:14px;
                 margin-left:10px;
+                margin-bottom:10px;
             }
             caption {
                 font-weight: bold;
                 font-size:16px;
+            }
+            ol{
+                padding-left:10px;
+                counter-reset: item;
+                list-style-type: none;
+                list-style-position: inside;
+            }
+            ol li::before {
+                counter-increment: item;
+                content : counters(item, ".") ". ";
             }
         </style>
     </head>
@@ -128,7 +140,7 @@
                                         <h1>CSS</h1><div></div>
                                     </div>
                                     <div class="my-explanation">
-                                        위키백과, 우리 모두의 백과사전.<br>
+                                        위키백과, 우리 모두의 백과사전.<br>s
                                     </div>
                                 </div>
                                 <div class="content-body">
@@ -136,7 +148,7 @@
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Disambig_grey.svg/46px-Disambig_grey.svg.png" style="width:25px; margin:15px">
                                         <div style="margin:17px">다른 뜻에 대해서는 <a href="https://ko.wikipedia.org/wiki/CSS_(%EB%8F%99%EC%9D%8C%EC%9D%B4%EC%9D%98)">CSS (동음이의)</a> 문서를 참고하십시오.</div>
                                     </div>
-                                    <table width="300" border="1" align="right">
+                                    <table width="300" border="1" style="float:right; clear:right">
                                         <caption>
                                             캐스케이팅 스타일 시트<br>
                                             Cascading Style Sheets(CSS)
@@ -185,10 +197,52 @@
                                             <td>www.w3.org/TR/CSS/#css</td>
                                         </tr>
                                     </table>
+                                    <table width="300" border="1" style="text-align: center; float:right; clear:right">
+                                        <tr>
+                                            <td>HTML</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DHTML . HTML5(오디오.캔버스.비디오) . XHTML(베이직.모바일 프로파일 . C-HTML) . HTML 요소(span과 div) . HTML 속성 . HTML 프레임 . HTML 편집기 . 문자 인코딩(유니코드) . 언어 코드 . 문서 객체 모델 . 브라우저 오브젝트 모델 . 스타일 시트(CSS) . 폰트 패밀리 . 웹 색상 . 자바스크립트(WebGL.WebCL) . W3C(밸리데이터) . WHATWG . 쿼크 모드 . 웹 스토리지 . 렌더링 엔진</td>
+                                        </tr>
+                                        <tr>
+                                            <td>비교</td>
+                                        </tr>
+                                        <tr>
+                                            <td>문서 마크업 언어 . HTML 지원 . XHTML(1.1)</td>
+                                        </tr>
+                                    </table>
                                     <p>종속형 시트 또는 캐스케이딩 스타일 시트(Cascading Style Sheets, CSS)는 마크업 언어가 실제 표시되는 방법을 기술하는 스타일 언어(style sheet language)로[1], HTML과 XHTML에 주로 쓰이며, XML에서도 사용할 수 있다. W3C의 표준이며, 레이아웃과 스타일을 정의할 때의 자유도가 높다.</p>
                                     <p>기본 파일명[2]은 style.css이다.</p>
                                     <p>마크업 언어(ex: HTML)가 웹사이트의 몸체를 담당한다면 CSS는 옷과 액세서리처럼 꾸미는 역할을 담당한다고 할 수 있다. 즉, HTML 구조는 그대로 두고 CSS 파일만 변경해도 전혀 다른 웹사이트처럼 꾸밀 수 있다.</p>
                                     <p>현재 개발 중인 CSS3의 경우 그림자 효과, 그라데이션, 변형 등 그래픽 편집 프로그램으로 제작한 이미지를 대체할 수 있는 기능이 추가되었다. 또한 다양한 애니메이션 기능이 추가되어 어도비 플래시를 어느 정도 대체하고 있다.</p>
+                                    <div class="page-index">
+                                        <h4 style="text-align: center;">목차</h4>
+                                        <ol>
+                                            <li>역사
+                                                <ol>
+                                                    <li>버전의 변화
+                                                        <ol>
+                                                            <li>CSS1</li>
+                                                            <li>CSS2</li>
+                                                            <li>CSS3</li>
+                                                            <li>CSS4</li>
+                                                        </ol>
+                                                    </li>   
+                                                </ol>
+                                            </li>
+                                            <li>문법
+                                                <ol>
+                                                    <li>셀렉터</li>
+                                                    <li>선언 블록</li>
+                                                    <li>원천</li>
+                                                </ol>
+                                            </li>
+                                            <li>예제</li>
+                                            <li>같이 보기</li>
+                                            <li>각주</li>
+                                            <li>외부 링크</li>
+                                        </ol>
+                                    </div>
                                 </div>
                             </div>
                         </div>

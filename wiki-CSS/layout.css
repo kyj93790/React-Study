@@ -83,3 +83,11 @@
     display:grid;
     grid-template-columns: 30px 1fr;
 }
+
+.page-index{
+    line-height: 20px;
+    font-size:13px;
+    background-image: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 10%, #f8f9fa 90%, #ffffff 100%);
+    border:1px solid lightslategray;
+    width:120px;
+}
