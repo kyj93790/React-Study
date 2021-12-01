@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<script crossorigin src="http://unpkg.com/react@16/umd/react.development.js"></script>
+		<script crossorigin src="http://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+		<script src="http://unpkg.com/babel-standalone@6/babel.min.js"></script>"
+	</head>
+	<body>
+		<div id="root"></div> <!-- 결과 : <div id="root"><button>Like</button></div> -->
+		<script type="text/babel">
+			//const e = React.createElement;	// html tag를 만드는 것과 비슷
+
+			class LikeButton extends React.Component {	// 상속
+				constructor(props) {
+					super(props);
+					this.state = {
+						liked : false,
+					};
+				}
+
+				render() {
+					return <button type="submit" onClick={() => { this.setState({liked : true})}}>Like</button>
+					//return e(
+					//	'button',
+					//	{ onClick: () => { this.setState({liked : true})}, type: 'submit' },
+					//	this.state.liked === true ? 'Liked' : 'Like',
+					//);
+					// <button onClick="() => {console.log('clicked')}" type="submit">Like</button>
+				}
+			}
+
+		</script>
+		<script>
+			// component를 만든 것을 web에 실제 rendering 해줌.
+			ReactDOM.render(<LikeButton />, document.querySelector('#root'));
+		</script>
+	</body>
+</html>
