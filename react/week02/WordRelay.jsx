@@ -1,5 +1,6 @@
 // 쪼갠 파일에서 필요로 하는 패키지나 라이브러리를 가져옴
 const React = require('react');
+// 아래에서 extends React.Component를 Component로 쓸 수 있게 해줌
 const { Component } = React;
 
 class WordRelay extends Component {
