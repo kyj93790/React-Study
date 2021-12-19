@@ -7,7 +7,7 @@ class Try extends Component {
                 <div>{this.props.tryInfo.try}</div>
                 <div>{this.props.tryInfo.result}</div>
             </li>
-        )
+        );
     }
 }
 

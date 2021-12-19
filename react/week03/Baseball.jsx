@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Try from './Try';
 
+// this를 안쓰므로 밖으로 뺄 수 있음
+// 밖으로 빼놓으면 class와 독립적으로 존재 -> hooks로 바꿀 때 영향이 없음.
 function getNumbers() { // 숫자 네 개를 겹치지 않고 랜덤하게 뽑는 함수
     const candidate = [1,2,3,4,5,6,7,8,9];
     const array = [];
@@ -24,10 +26,13 @@ class Baseball extends Component {
     onSubmitForm = (e) => {
         e.preventDefault();
         if (this.state.value === this.state.answer.join('')) {
-            this.setState({
-                result: '홈런!',
-                tries: [...this.state.tries, { try: this.state.value, result: '홈런!' }]
-            })
+            // 옛날 state로 현재 state를 만들 때에는 함수형 setState를 사용
+            this.setState((prevState) => {
+                return {
+                    result: '홈런!',
+                    tries: [...prevState.tries, { try: this.state.value, result: '홈런!' }],
+                };
+            });
             alert('게임을 다시 시작합니다!');
             this.setState({
                 value: '',
@@ -41,7 +46,7 @@ class Baseball extends Component {
             let ball = 0;
             if (this.state.tries.length >= 9) { // 10번 이상 틀렸을 때
                 this.setState({
-                    result : `10번 넘게 틀려서 실패 ! 답은 ${this.state.answer.join(',')}였습니다!`,
+                    result : `10번 넘게 틀려서 실패 ! 답은 ${this.state.answer.join('')}였습니다!`,
                 });
                 alert('게임을 다시 시작합니다!');
                 this.setState({
@@ -58,8 +63,11 @@ class Baseball extends Component {
                         ball += 1;
                     }
                 }
-                this.setState({
-                    tries: [...this.state.tries, {try: this.state.value, result: `${strike} 스트라이크, ${ball} 볼입니다`}],
+                this.setState((prevState) => {
+                    return {
+                        tries: [...prevState.tries, {try: this.state.value, result: `${strike} 스트라이크, ${ball} 볼입니다`}],
+                        value: '',
+                    };
                 });
             }
         }
