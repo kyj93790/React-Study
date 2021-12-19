@@ -6,8 +6,8 @@ import { hot } from 'react-hot-loader/root'
 // const { hot } = require('react-hot-loader/root');
 
 // require : node의 모듈 시스템
-import Baseball from './Baseball';
+import Baseball_hooks from './Baseball_hooks';
 
-const Hot = hot(Baseball);
+const Hot = hot(Baseball_hooks);
 
-ReactDom.render(<Baseball />, document.querySelector('#root'));
+ReactDom.render(<Baseball_hooks />, document.querySelector('#root'));
