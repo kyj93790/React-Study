@@ -10,6 +10,7 @@ function getNumbers() { // 숫자 네 개를 겹치지 않고 랜덤하게 뽑�
         const chosen = candidate.splice(Math.floor(Math.random() * (9 - i)), 1)[0];
         array.push(chosen);
     }
+    console.log(array);
     return array;
 }
 
@@ -36,7 +37,7 @@ class Baseball extends Component {
             alert('게임을 다시 시작합니다!');
             this.setState({
                 value: '',
-                answers: getNumbers(),
+                answer: getNumbers(),
                 tries: [],
             });
         }
@@ -49,9 +50,12 @@ class Baseball extends Component {
                     result : `10번 넘게 틀려서 실패 ! 답은 ${this.state.answer.join('')}였습니다!`,
                 });
                 alert('게임을 다시 시작합니다!');
+                let temp;
+                temp = getNumbers();
+                console.log(temp);
                 this.setState({
                     value: '',
-                    answers: getNumbers(),
+                    answer: getNumbers(),
                     tries: [],
                 });
             }
