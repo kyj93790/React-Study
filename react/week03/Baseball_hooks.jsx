@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import Try_hooks from './Try_hooks';
 
+function testForRendering() { // 숫자 네 개를 겹치지 않고 랜덤하게 뽑는 함수
+    const candidate = [1,2,3,4,5,6,7,8,9];
+    const array = [];
+    for (let i=0; i<4; i+=1) {
+        const chosen = candidate.splice(Math.floor(Math.random() * (9 - i)), 1)[0];
+        array.push(chosen);
+    }
+    console.log("testForRendering");
+    return array;
+}
+
 // this를 안쓰므로 밖으로 뺄 수 있음
 // 밖으로 빼놓으면 class와 독립적으로 존재 -> hooks로 바꿀 때 영향이 없음.
 function getNumbers() { // 숫자 네 개를 겹치지 않고 랜덤하게 뽑는 함수
@@ -10,7 +21,7 @@ function getNumbers() { // 숫자 네 개를 겹치지 않고 랜덤하게 뽑�
         const chosen = candidate.splice(Math.floor(Math.random() * (9 - i)), 1)[0];
         array.push(chosen);
     }
-    console.log('array');
+    console.log("array generation");
     console.log(array);
     return array;
 }
@@ -25,6 +36,8 @@ const Baseball_hooks = () => {
     // 화살표 함수를 쓰지 않으면 constructor를 써야 함.
     const onSubmitForm = (e) => {
         e.preventDefault();
+        console.log("answer");
+        console.log(answer);
         if (value === answer.join('')) {
             // 옛날 state로 현재 state를 만들 때에는 함수형 setState를 사용
             setResult('홈런!');
@@ -64,7 +77,10 @@ const Baseball_hooks = () => {
     };
 
     const onChangeInput = (e) => {
+        console.log("answer in onChangeInput")
+        console.log(answer);
         setValue(e.target.value);
+        console.log("check timing");
     };
 
     return (

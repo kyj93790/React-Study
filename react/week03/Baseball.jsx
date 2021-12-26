@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import Try from './Try';
 
+function testForRendering() { // 숫자 네 개를 겹치지 않고 랜덤하게 뽑는 함수
+    const candidate = [1,2,3,4,5,6,7,8,9];
+    const array = [];
+    for (let i=0; i<4; i+=1) {
+        const chosen = candidate.splice(Math.floor(Math.random() * (9 - i)), 1)[0];
+        array.push(chosen);
+    }
+    console.log("testForRendering");
+    return array;
+}
+
 // this를 안쓰므로 밖으로 뺄 수 있음
 // 밖으로 빼놓으면 class와 독립적으로 존재 -> hooks로 바꿀 때 영향이 없음.
 function getNumbers() { // 숫자 네 개를 겹치지 않고 랜덤하게 뽑는 함수
@@ -10,6 +21,7 @@ function getNumbers() { // 숫자 네 개를 겹치지 않고 랜덤하게 뽑�
         const chosen = candidate.splice(Math.floor(Math.random() * (9 - i)), 1)[0];
         array.push(chosen);
     }
+    console.log("array generation")
     console.log(array);
     return array;
 }
@@ -51,8 +63,6 @@ class Baseball extends Component {
                 });
                 alert('게임을 다시 시작합니다!');
                 let temp;
-                temp = getNumbers();
-                console.log(temp);
                 this.setState({
                     value: '',
                     answer: getNumbers(),
