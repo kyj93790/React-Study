@@ -9,7 +9,7 @@ module.exports = {
     },
 
     entry: {
-        app: ['./client_rendertest'],
+        app: ['./client'],
     },
     module: {
         rules: [{

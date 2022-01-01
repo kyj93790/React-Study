@@ -5,6 +5,8 @@ class Test extends Component {
         counter : 0,
     };
 
+    // Component 대신 PureComonent에서 extends 하면 shouldComponentUpdate를 알아서 해줌.
+    // -> shouldComponentUpdate가 없어도 렌더링 방지가 됨.
     shouldComponentUpdate(nextProps, nextState, nextConetext) {
         if (this.state.counter !== nextState.counter) {
             return true;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState, memo } from 'react';
 import Try_hooks from './Try_hooks';
 
 function testForRendering() { // 숫자 네 개를 겹치지 않고 랜덤하게 뽑는 함수
@@ -26,11 +26,13 @@ function getNumbers() { // 숫자 네 개를 겹치지 않고 랜덤하게 뽑�
     return array;
 }
 
-const Baseball_hooks = () => {
+// 자식 Component가 모두 PureComponent나 memo이면 부모에도 PureComponent나 memo를 적용할 수 있음.
+const Baseball_hooks = memo(() => {
     const [result, setResult] = useState('');
     const [value, setValue] = useState('');
     const [answer, setAnswer] = useState(getNumbers());
     const [tries, setTries] = useState([]);
+    const inputEl = useRef(null);
 
     // 화살표 함수를 쓰지 않으면 this 사용 불가.
     // 화살표 함수를 쓰지 않으면 constructor를 써야 함.
@@ -48,6 +50,7 @@ const Baseball_hooks = () => {
             setValue('');
             setAnswer(getNumbers());
             setTries([]);
+            inputEl.current.focus();
         }
         else {
             const answerArray = value.split('').map((v) => parseInt(v));
@@ -59,6 +62,7 @@ const Baseball_hooks = () => {
                 setValue('');
                 setAnswer(getNumbers());
                 setTries([]);
+                inputEl.current.focus();
             }
             else {
                 for (let i=0; i<4; i+=1) {
@@ -72,6 +76,7 @@ const Baseball_hooks = () => {
                     return [...prevTries, {try: value, result: `${strike} 스트라이크, ${ball} 볼입니다`}]
                 });
                 setValue('');
+                inputEl.current.focus();
             }
         }
     };
@@ -87,7 +92,7 @@ const Baseball_hooks = () => {
         <>
             <h1>{result}</h1>
             <form onSubmit={onSubmitForm}>
-                <input maxLength={4} value={value} onChange={onChangeInput} />
+                <input ref={inputEl} maxLength={4} value={value} onChange={onChangeInput} />
             </form>
             <div>시도 : {tries.length}</div>
             <ul>
@@ -101,6 +106,6 @@ const Baseball_hooks = () => {
             </ul>
         </>
     );
-};
+});
 
 export default Baseball_hooks;

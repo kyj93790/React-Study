@@ -1,6 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class Try extends Component {
+class Try extends PureComponent {
+    // 부모의 props를 state로 만듦.
+    state = {
+        result: this.props.result,
+        try : this.props.try,
+    };
+
     render() {
         return (
             <li>

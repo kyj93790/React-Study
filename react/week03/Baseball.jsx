@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent, creatRef, createRef } from 'react';
 import Try from './Try';
 
 function testForRendering() { // 숫자 네 개를 겹치지 않고 랜덤하게 뽑는 함수
@@ -26,7 +26,7 @@ function getNumbers() { // 숫자 네 개를 겹치지 않고 랜덤하게 뽑�
     return array;
 }
 
-class Baseball extends Component {
+class Baseball extends PureComponent {
     state = {
         result: '',
         value: '',
@@ -41,6 +41,7 @@ class Baseball extends Component {
         if (this.state.value === this.state.answer.join('')) {
             // 옛날 state로 현재 state를 만들 때에는 함수형 setState를 사용
             this.setState((prevState) => {
+                // setState를 함수형으로 작성하면 추가적인 동작도 진행할 수 있음.
                 return {
                     result: '홈런!',
                     tries: [...prevState.tries, { try: this.state.value, result: '홈런!' }],
@@ -52,6 +53,7 @@ class Baseball extends Component {
                 answer: getNumbers(),
                 tries: [],
             });
+            this.inputRef.current.focus();
         }
         else {
             const answerArray = this.state.value.split('').map((v) => parseInt(v));
@@ -68,6 +70,7 @@ class Baseball extends Component {
                     answer: getNumbers(),
                     tries: [],
                 });
+                this.inputRef.current.focus();
             }
             else {
                 for (let i=0; i<4; i+=1) {
@@ -83,6 +86,7 @@ class Baseball extends Component {
                         value: '',
                     };
                 });
+                this.inputRef.current.focus();
             }
         }
     };
@@ -94,12 +98,14 @@ class Baseball extends Component {
         });
     };
 
+    inputRef = createRef();
+
     render() {
         return (
             <>
                 <h1>{this.state.result}</h1>
                 <form onSubmit={this.onSubmitForm}>
-                    <input maxLength={4} value={this.state.value} onChange={this.onChangeInput} />
+                    <input ref={this.onInputRef} maxLength={4} value={this.state.value} onChange={this.onChangeInput} />
                 </form>
                 <div>시도 : {this.state.tries.length}</div>
                 <ul>
