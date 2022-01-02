@@ -1,7 +1,7 @@
-import { thistle } from 'color-name';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import Average from './Average'
 
-class ResponseCheck extends Component {
+class ResponseCheck extends PureComponent {
     state = {
         state: 'waiting',
         message: '클릭해서 시작하세요.',
@@ -53,18 +53,8 @@ class ResponseCheck extends Component {
         });
     }
 
-    renderAverage = () => {
-        const { result } = this.state;
-        // false, undefined, null은 jsx에서 태그없음을 의미함
-        return result.length === 0
-        ? null : <>
-            <div>평균 시간: {result.reduce((a,c) => a + c) / result.length}ms</div>
-            <button onClick={this.onReset}>리셋</button>
-        </>
-    };
-
     render() {
-        const { state, message } = this.state;
+        const { state, message, result } = this.state;
         return (
             <>
                 <div
@@ -74,7 +64,8 @@ class ResponseCheck extends Component {
                 >
                     {message}
                 </div>
-                {this.renderAverage()}
+                <Average avgInfo={result} />
+                <button onClick={this.onReset}>리셋</button>
             </>
         );
     }

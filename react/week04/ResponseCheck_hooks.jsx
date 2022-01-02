@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, memo } from 'react';
+import Average_hooks from './Average_hooks';
 
-const ResponseCheck_hooks = () => {
+const ResponseCheck_hooks = memo(() => {
     // useState로 state를 바꾸면 return 부분이 다시 실행됨.
     // useRef로 값을 바꿀 때는 return 부분이 다시 실행되지 않음.
     // -> 불필요한 렌더링을 막을 수 있음.
@@ -21,6 +22,7 @@ const ResponseCheck_hooks = () => {
                 setState('now');
                 setMessage('지금 클릭');
                 startTime.current = new Date();
+                // 0~1 -> * 1000 => 0~1000 -> + 2000 => 2000~3000 (ms 단위)
             }, Math.floor(Math.random() * 1000) + 2000); // 2초~3초 랜덤 -> 예측이 불가하도록 함
         }
         else if (state === 'ready') { // 성급하게 클릭
@@ -41,14 +43,7 @@ const ResponseCheck_hooks = () => {
     const onReset = () => {
         setResult([]);
     };
-    const renderAverage = () => {
-        // false, undefined, null은 jsx에서 태그없음을 의미함
-        return result.length === 0
-        ? null : <>
-            <div>평균 시간: {result.reduce((a,c) => a + c) / result.length}ms</div>
-            <button onClick={onReset}>리셋</button>
-        </>
-    };
+
     return (
         <>
             <div
@@ -58,9 +53,10 @@ const ResponseCheck_hooks = () => {
             >
             {message}
             </div>
-            {renderAverage()}
+            <Average_hooks avgInfo={result} />
+            <button onClick={onReset}>리셋</button>
         </>
     );
-};
+});
 
 export default ResponseCheck_hooks;
