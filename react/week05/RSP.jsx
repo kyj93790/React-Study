@@ -16,6 +16,12 @@ const scores = {
     보: -1,
 };
 
+const computerChoice = (imgCoord) => {
+    return Object.entries(rspCoords).find(function(v) {
+        return v[1] === imgCoord;
+    })[0];
+};
+
 class RSP extends Component {
     state = {
         result: '',
@@ -29,27 +35,7 @@ class RSP extends Component {
     // 리렌더링이 일어날 때는 실행되지 않음.
     // 렌더될 때 setState를 하고 싶을 수 있는데, render() 안에 setState를 사용하면 무한 반복 -> componentDidMount()와 같은 함수를 활용
     componentDidMount() { // 컴포넌트가 첫 렌더링된 후. 여기에 비동기 요청을 많이 함.
-        this.interval = setInterval(() => {
-            // 비동기 함수가 바깥 함수를 참조하면 클로저 문제가 발생함
-            const { imgCoord } = this.state; // -142px
-            if (imgCoord === rspCoords.바위) {
-                this.setState({
-                    imgCoord: rspCoords.가위,
-                });
-            } else if (imgCoord === rspCoords.가위) {
-                this.setState({
-                    imgCoord: rspCoords.보,
-                });
-            } else if (imgCoord === rspCoords.보) {
-                this.setState({
-                    imgCoord: rspCoords.바위,
-                });
-            }
-        }, 1000);
-    }
-
-    componentDidUpdate() { // 리렌더링 후
-
+        this.interval = setInterval(this.changeHand, 100);
     }
 
     // 부모 컴포넌트에 의해 '나' 컴포넌트를 없어질 때 실행
@@ -57,8 +43,51 @@ class RSP extends Component {
         clearInterval(this.interval);
     }
 
-    onClickBtn = (choice) => {
+    changeHand = () => {
+        const { imgCoord } = this.state; // -142px
+        if (imgCoord === rspCoords.바위) {
+            this.setState({
+                imgCoord: rspCoords.가위,
+            });
+        } else if (imgCoord === rspCoords.가위) {
+            this.setState({
+                imgCoord: rspCoords.보,
+            });
+        } else if (imgCoord === rspCoords.보) {
+            this.setState({
+                imgCoord: rspCoords.바위,
+            });
+        }
+    }
 
+    onClickBtn = (choice) => {
+        const { imgCoord } = this.state;
+        clearInterval(this.interval); //시각적으로 이긴 사람을 보게 할 수 있도록 멈춤
+        const myScore = scores[choice];
+        const cpuScore = scores[computerChoice(imgCoord)];
+        const diff = myScore - cpuScore;
+        if (diff == 0) {
+            this.setState({
+                result: '비겼습니다!',
+            });
+        } else if ([-1, 2].includes(diff)) {
+            this.setState((prevState) => {
+                return {
+                    result: '이겼습니다!',
+                    score: prevState.score + 1,
+                };
+            });
+        } else {
+            this.setState((prevState) => {
+                return {
+                    result: '졌습니다!',
+                    score: prevState.score - 1,
+                };
+            });
+        }
+        setTimeout(() => {
+            this.interval = setInterval(this.changeHand, 100);  
+        }, 2000);
     };
 
     render() {
