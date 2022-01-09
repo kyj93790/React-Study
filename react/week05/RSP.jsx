@@ -97,6 +97,7 @@ class RSP extends Component {
         this.setState(() => {
             return {
                 result: '',
+                imgCoord: '0',
                 score: 0,
             };
         });
