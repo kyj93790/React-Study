@@ -91,6 +91,20 @@ class RSP extends Component {
         }, 1000);
     };
 
+    onClickReset = () => () => {
+        clearInterval(this.interval);
+        alert('게임을 리셋합니다!');
+        this.setState(() => {
+            return {
+                result: '',
+                score: 0,
+            };
+        });
+        setTimeout(() => {
+            this.interval = setInterval(this.changeHand, 100);  
+        }, 1000);
+    };
+
     render() {
         const { result, score, imgCoord } = this.state;
         return (
@@ -103,6 +117,7 @@ class RSP extends Component {
                 </div>
                 <div>{result}</div>
                 <div>현재 {score}점</div>
+                <button id="reset" onClick={this.onClickReset()}>리셋</button>
             </>
         );
     }
