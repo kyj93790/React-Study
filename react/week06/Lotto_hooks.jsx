@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import Ball_hooks from './Ball_hooks';
 
-// state 안쓰는 것들은 분리를 해두면 hooks 변환 시 처리해주지 않아도 돼서 편리
+// state 안쓰는 것들은 분리를 해두면 hooks 변환 시 처리해주지 않아도 돼서 편리함
 function getWinNumbers() {
     console.log('getWinNumbers');
     const candidate = Array(45).fill().map((v, i) => i+1);

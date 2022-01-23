@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-
 // 함수 Component
 // 참고로 함수 Component != Hooks
 // Hooks -> useState, useEffect 등
