@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useCallback } from 'react';
+import React, { useEffect, useReducer, useCallback, memo } from 'react';
 import Table from './Table';
 
 // state를 하나로 모아두고 action을 통해서만 바꿈
@@ -71,7 +71,7 @@ const reducer = (state, action) => {
     }
 };
 
-const TicTacToe = () => {
+const TicTacToe = memo(() => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const { tableData, turn, winner, draw, recentCell } = state;
     // const [winner, setWinner] = useState('');
@@ -141,6 +141,6 @@ const TicTacToe = () => {
             {(draw || winner) && <button onClick={onClickReset}>리셋</button>}
         </>
     )
-};
+});
 
 export default TicTacToe;
