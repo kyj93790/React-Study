@@ -21,7 +21,7 @@ module.exports = {
                         },
                         debug: true,
                     }],
-                    '@babel/preset-react'
+                    '@babel/preset-react',
                 ],
                 plugins: [],
             },

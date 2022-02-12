@@ -1,5 +1,7 @@
 <html>
 	<head>
+        <meta charset="utf-8" />
+        <title>구구단</title>
 		<script crossorigin src="http://unpkg.com/react@16/umd/react.development.js"></script>
 		<script crossorigin src="http://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 		<script src="http://unpkg.com/babel-standalone@6/babel.min.js"></script>
@@ -7,35 +9,62 @@
 	<body>
 		<div id="root"></div> <!-- 결과 : <div id="root"><button>Like</button></div> -->
 		<script type="text/babel">
-			//const e = React.createElement;	// tag를 만들어주는 함수
+			class GuGuDan extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        first : Math.ceil(Math.random() * 9),
+                        second : Math.ceil(Math.random() * 9),
+                        value : '',
+                        result : '',
+                    };
+                }
+                onSubmit = (e) => {
+                    e.preventDefault();
+                    if (parseInt(this.state.value) === this.state.first * this.state.second) {
+                        this.setState({
+                            result : this.state.value + ' ' + '정답',
+                            first : Math.ceil(Math.random() * 9),
+                            second : Math.ceil(Math.random() * 9),
+                            value: '',
+                        });
+                        this.input.focus();
+                    }
+                    else {
+                        this.setState({
+                            result : this.state.value + ' ' + '땡',
+                            value : '',
+                        });
+                        this.input.focus();
+                    }
+                };
 
-			class LikeButton extends React.Component {	// 상속
-				constructor(props) {
-					super(props);
-					this.state = {
-						liked : false,
-					};
-				}
+                onChange = (e) => {
+                    this.setState({ value : e.target.value});
+                };
 
-				render() {	// 	어떻게 화면에 표시할 지를 결정해주는 메소드
-					return <button type="submit" onClick={() => { this.setState({ liked : true })}}>
-						{this.state.liked === true ? 'Liked' : 'Like'}	
-					</button>;
-					// JSX ( JS + XML )
-					
-					//return e(
-					//	'button',
-					//	{ onClick: () => { this.setState({liked : true})}, type: 'submit' },
-					//	this.state.liked === true ? 'Liked' : 'Like',
-					//);
-					// <button onClick="() => {console.log('clicked')}" type="submit">Like</button>
-				}
-			}
-
+                input;
+                
+                Input = (c) => {
+                    this.input = c;
+                };
+                render() {
+                    return (
+                        <div>
+                            <div> {this.state.first}곱하기{this.state.second}는?</div> 
+                            <form onSubmit={this.onSubmit}>
+                                <input ref={(c) => {this.Input}} type="number" value={this.state.value} onChange={this.onChange} />
+                                <button>입력!</button>
+                            </form>
+                            <div>{this.state.result}</div>
+                        </div>
+                    );
+                }
+            }
 		</script>
 		<script type="text/babel">
 			// component를 만든 것을 web에 실제 rendering 해줌.
-			ReactDOM.render(<LikeButton />, document.querySelector('#root'));
+			ReactDOM.render(<GuGuDan />, document.querySelector('#root'));
 		</script>
 	</body>
 </html>
