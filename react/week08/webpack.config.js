@@ -1,4 +1,4 @@
-const path = requir('path');
+const path = require('path');
 
 module.exports = {
     name: '',
